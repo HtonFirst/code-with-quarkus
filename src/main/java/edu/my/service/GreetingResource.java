@@ -18,7 +18,7 @@ public class GreetingResource {
     @ConfigProperty(name = "greeting.message")
     String message;
 
-    @ConfigProperty(name = "greeting.suffix", defaultValue="!")
+    @ConfigProperty(name = "greeting.suffix", defaultValue = "!")
     String suffix;
 
     @ConfigProperty(name = "greeting.name")
@@ -34,6 +34,15 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return message + " " + name.orElse("world" + suffix);
+        return message + " " + name.orElse("world") + suffix;
     }
+
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    @Path("/greeting")
+    public  String Greeting() {
+        return "Greeting ";
+    }
+
+
 }
